@@ -1,9 +1,9 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const TerserPlugin = require("terser-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
+const port = 8080;
 module.exports = function(webpackEnv) {
     const isEnvDevelopment = webpackEnv === "development";
     const isEnvProduction = webpackEnv === "production";
@@ -23,18 +23,19 @@ module.exports = function(webpackEnv) {
             path: path.resolve(__dirname, "dist"),
             filename: "js/[name].bundle.js",
         },
-        optimization: {
-            minimize: isEnvProduction,
-        },
         resolve: {
             // Add '.ts' and '.tsx' as resolvable extensions.
             extensions: [".ts", ".tsx", ".js", ".json"],
         },
         devServer: {
             overlay: true,
-            quiet: true,
+            port: port,
+            quiet: true, //need this for FriendlyErrorsWebpackPlugin
             watchContentBase: true,
-            contentBase: path.join(__dirname, "src"),
+            contentBase: path.join(__dirname, "public"),
+            watchOptions: {
+                ignored: /node_modules/,
+            },
         },
         module: {
             rules: [
@@ -51,36 +52,19 @@ module.exports = function(webpackEnv) {
             ],
         },
         plugins: [
-            // new webpack.NamedModulesPlugin(),
-
-            // new CheckerPlugin(),
-            new HtmlWebPackPlugin(
-                Object.assign(
-                    {},
-                    {
-                        template: "./public/index.html",
-                        filename: "./index.html",
-                        inject: true,
-                    },
-                    isEnvProduction
-                        ? {
-                              minify: {
-                                  removeComments: true,
-                                  collapseWhitespace: true,
-                                  removeRedundantAttributes: true,
-                                  useShortDoctype: true,
-                                  removeEmptyAttributes: true,
-                                  removeStyleLinkTypeAttributes: true,
-                                  keepClosingSlash: true,
-                                  minifyJS: true,
-                                  minifyCSS: true,
-                                  minifyURLs: true,
-                              },
-                          }
-                        : undefined,
-                ),
-            ),
-            new FriendlyErrorsWebpackPlugin(),
+            new HtmlWebPackPlugin({
+                template: "./public/index.html",
+                filename: "./index.html",
+                favicon: "./public/favicon.ico",
+            }),
+            new FriendlyErrorsWebpackPlugin({
+                compilationSuccessInfo: {
+                    messages: [
+                        `You application is running here http://localhost:${port}`,
+                    ],
+                    notes: ["Good luck!"],
+                },
+            }),
             new ForkTsCheckerWebpackPlugin({
                 async: false,
                 checkSyntacticErrors: true,
