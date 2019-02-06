@@ -1,8 +1,12 @@
+/// <reference path='./index.d.ts'/>
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import styled from "styled-components";
+import small from "./small.png";
+import verySmall from "./verySmall.png";
+import CustomComponent from "./CustomComponent";
 
-const xd = (arg: number) => console.log(arg);
+const hello = (arg: number) => console.log(arg);
 
 const Container = styled.main`
     border: 1px solid black;
@@ -12,10 +16,13 @@ const root = document.getElementById("root") as HTMLElement;
 ReactDOM.render(
     <Container
         onClick={() => {
-            xd(43);
+            hello(43);
         }}
     >
-        asdsa
+        This is handled by file-loader ->
+        <CustomComponent image={small} />
+        this is handled by url-loader ->
+        <CustomComponent image={verySmall} />
     </Container>,
     root,
 );
