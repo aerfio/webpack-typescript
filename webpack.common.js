@@ -45,7 +45,6 @@ module.exports = {
             filename: "./index.html",
             favicon: "./public/favicon.ico",
         }),
-
         new ForkTsCheckerWebpackPlugin({
             async: false,
             checkSyntacticErrors: true,

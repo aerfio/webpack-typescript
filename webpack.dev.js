@@ -32,6 +32,11 @@ module.exports = merge.smart(common, {
         ],
     },
     plugins: [
+        new HtmlWebPackPlugin({
+            template: "./public/index.html",
+            filename: "./index.html",
+            favicon: "./public/favicon.ico",
+        }),
         new FriendlyErrorsWebpackPlugin({
             compilationSuccessInfo: {
                 messages: [
