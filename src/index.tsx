@@ -16,6 +16,7 @@ const Proof = styled.div`
     width: 100px;
     height: 100px;
 `;
+
 const root = document.getElementById("root") as HTMLElement;
 ReactDOM.render(
     <Container
