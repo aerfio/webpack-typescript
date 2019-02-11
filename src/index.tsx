@@ -11,7 +11,11 @@ const hello = (arg: number) => console.log(arg);
 const Container = styled.main`
     border: 1px solid black;
 `;
-
+const Proof = styled.div`
+    background-color: ${({ color }: { color?: string }) => color || "red"};
+    width: 100px;
+    height: 100px;
+`;
 const root = document.getElementById("root") as HTMLElement;
 ReactDOM.render(
     <Container
@@ -23,6 +27,8 @@ ReactDOM.render(
         <CustomComponent image={small} />
         this is handled by url-loader ->
         <CustomComponent image={verySmall} />
+        <Proof />
+        <Proof color="black" />
     </Container>,
     root,
 );

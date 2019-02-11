@@ -1,4 +1,5 @@
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 const merge = require("webpack-merge");
 const common = require("./webpack.common.js");
 const path = require("path");
