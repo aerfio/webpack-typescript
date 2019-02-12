@@ -9,27 +9,32 @@ import CustomComponent from "./CustomComponent";
 const hello = (arg: number) => console.log(arg);
 
 const Container = styled.main`
-    border: 1px solid black;
+	border: 1px solid black;
 `;
 const Proof = styled.div`
-    background-color: ${({ color }: { color?: string }) => color || "red"};
-    width: 100px;
-    height: 100px;
+	background-color: ${({ color }: { color?: string }) => color || "red"};
+	width: 100px;
+	height: 100px;
 `;
-
+var xd2 = 1;
+const xd = () => {
+	if (localStorage) {
+		console.log("xdd");
+	}
+};
 const root = document.getElementById("root") as HTMLElement;
 ReactDOM.render(
-    <Container
-        onClick={() => {
-            hello(43);
-        }}
-    >
-        This is handled by file-loader ->
-        <CustomComponent image={small} />
-        this is handled by url-loader ->
-        <CustomComponent image={verySmall} />
-        <Proof />
-        <Proof color="black" />
-    </Container>,
-    root,
+	<Container
+		onClick={() => {
+			hello(43);
+		}}
+	>
+		This is handled by file-loader ->
+		<CustomComponent image={small} />
+		this is handled by url-loader ->
+		<CustomComponent image={verySmall} />
+		<Proof />
+		<Proof color="black" />
+	</Container>,
+	root,
 );
