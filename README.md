@@ -5,5 +5,5 @@ To add:
 -   [x] Typescript
 -   [x] Prod/dev webpack config
 -   [x] file/url-loaders
--   [ ] TSLint
+-   [x] TSLint
 -   [ ] Handle .env and environmental variables
