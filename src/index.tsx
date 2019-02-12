@@ -26,7 +26,7 @@ const root = document.getElementById("root") as HTMLElement;
 ReactDOM.render(
 	<Container
 		onClick={() => {
-			hello(43);
+			hello(xd2);
 		}}
 	>
 		This is handled by file-loader ->
