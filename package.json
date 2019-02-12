@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "webpack-dev-server --open --config=webpack.dev.js",
 		"build": "webpack --config=webpack.prod.js",
-		"lint": "tslint -c tslint.json 'src/**/*.tsx' --fix"
+		"lint": "tslint 'src/**/*.tsx'"
 	},
 	"browserslist": [
 		"last 2 Chrome versions"
@@ -17,9 +17,9 @@
 		}
 	},
 	"lint-staged": {
-		"**/*.{js,jsx,json,ts,tsx}": [
+		"**/*.{js,jsx,ts,tsx}": [
 			"prettier --write",
-			"tslint -c tslint.json",
+			"tslint",
 			"git add"
 		]
 	},

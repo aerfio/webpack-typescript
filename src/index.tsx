@@ -1,3 +1,4 @@
+// tslint:disable-next-line:no-reference
 /// <reference path='./index.d.ts'/>
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -16,17 +17,12 @@ const Proof = styled.div`
 	width: 100px;
 	height: 100px;
 `;
-var xd2 = 1;
-const xd = () => {
-	if (localStorage) {
-		console.log("xdd");
-	}
-};
+
 const root = document.getElementById("root") as HTMLElement;
 ReactDOM.render(
 	<Container
 		onClick={() => {
-			hello(xd2);
+			hello(45);
 		}}
 	>
 		This is handled by file-loader ->
