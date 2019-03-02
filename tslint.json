@@ -18,6 +18,6 @@
 	},
 	"jsRules": {},
 	"linterOptions": {
-		"exclude": ["*.json", "**/*.json"]
+		"exclude": ["*.json", "**/*.json", "*.{dev,prod}.js"]
 	}
 }
