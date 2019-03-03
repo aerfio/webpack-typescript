@@ -6,8 +6,8 @@
 	"scripts": {
 		"start": "webpack-dev-server --open --config=webpack.dev.js",
 		"build": "webpack --config=webpack.prod.js",
-		"lint-check": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose && prettier --check 'src/**/*.{ts,tsx}'",
-		"lint-fix": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --format verbose --fix && prettier --write 'src/**/*.{ts,tsx}'",
+		"lint-check": "tslint -c tslint.json -p . --format verbose && prettier --check 'src/**/*.{ts,tsx}'",
+		"lint-fix": "tslint -c tslint.json -p . --format verbose --fix && prettier --write 'src/**/*.{ts,tsx}'",
 		"conflict-check": "tslint-config-prettier-check ./tslint.json"
 	},
 	"browserslist": [
@@ -20,8 +20,8 @@
 	},
 	"lint-staged": {
 		"**/*.{js,jsx,ts,tsx}": [
+			"tslint -c tslint.json -p . --format verbose --fix",
 			"prettier --write",
-			"tslint --fix",
 			"git add"
 		]
 	},

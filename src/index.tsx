@@ -7,7 +7,7 @@ import small from "./small.png";
 import verySmall from "./verySmall.png";
 import CustomComponent from "./CustomComponent";
 
-const hello = (arg: number) => console.log(arg);
+const hello = (arg: number) => arg;
 
 const Container = styled.main`
 	border: 1px solid black;
