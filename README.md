@@ -6,4 +6,4 @@ To add:
 -   [x] Prod/dev webpack config
 -   [x] file/url-loaders
 -   [x] TSLint
--   [ ] Handle .env and environmental variables
+-   [x] Handle .env and environmental variables

@@ -7,7 +7,7 @@ import small from "./small.png";
 import verySmall from "./verySmall.png";
 import CustomComponent from "./CustomComponent";
 
-const hello = (arg: number) => arg;
+const hello = (arg: number): void => console.log(arg);
 
 const Container = styled.main`
 	border: 1px solid black;
@@ -18,7 +18,6 @@ const Proof = styled.div`
 	height: 100px;
 `;
 
-const root = document.getElementById("root") as HTMLElement;
 ReactDOM.render(
 	<Container
 		onClick={() => {
@@ -31,5 +30,5 @@ ReactDOM.render(
 		<Proof />
 		<Proof color="black" />
 	</Container>,
-	root,
+	document.getElementById("root"),
 );

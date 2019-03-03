@@ -1,5 +1,4 @@
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
-
 const merge = require("webpack-merge");
 const common = require("./webpack.common.js");
 const path = require("path");
@@ -38,7 +37,7 @@ module.exports = merge.smart(common, {
 	plugins: [
 		new FriendlyErrorsWebpackPlugin({
 			compilationSuccessInfo: {
-				messages: [`You application is running here: http://localhost:${port}`],
+				messages: [`Your application is running here: http://localhost:${port}`],
 			},
 		}),
 	],
