@@ -1,3 +1,3 @@
 import React from "react";
-const Image = ({ image }: { image: string }) => <img src={image} />;
+const Image: React.FunctionComponent<{ image: string }> = ({ image }) => <img src={image} />;
 export default Image;
