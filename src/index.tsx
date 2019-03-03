@@ -23,8 +23,7 @@ ReactDOM.render(
 	<Container
 		onClick={() => {
 			hello(45);
-		}}
-	>
+		}}>
 		This is handled by file-loader ->
 		<CustomComponent image={small} />
 		this is handled by url-loader ->
